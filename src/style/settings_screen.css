@@ -1,0 +1,176 @@
+.card {
+    position: relative;
+    display: block;
+    padding: 15px;
+    max-width: 320px;
+    margin: 15px auto;
+    padding-bottom: 5px;
+    overflow: hidden !important;
+    border-radius: 15px !important;
+    border: 1px solid transparent;
+    box-shadow: 0px 8px 16px 0 rgb(0 0 0 / 10%) !important;
+    background: linear-gradient(45deg, #009FFF, #0051FF);
+}
+
+.card .card_content, .card_form .card_content {
+    padding: 0 !important;
+}
+
+.card_form .card_content {
+    padding: 15px 5px !important;
+}
+
+.card_form .card_content .card_text, .card_form .card_content .card_heading, .card .card_text, .card .card_heading {
+    color: #ffffff !important;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+    text-transform: capitalize !important;
+    font-family: 'Poppins-Light' !important;
+}
+
+.card_form .card_content .card_text, .card_form .card_content .card_heading {
+    color: #111111 !important;
+}
+
+.card .card_heading, .card_form .card_content .card_heading {
+    font-size: 48px !important;
+    font-family: 'Poppins-Bold' !important;
+}
+
+.card .card_text:last-child {
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 16px;
+    font-family: Poppins-Black;
+}
+
+.card_form {
+    position: relative;
+    display: block;
+    padding: 15px;
+    max-width: 640px;
+    margin: 15px auto;
+    padding-bottom: 5px;
+    background: #ffffff;
+    overflow: hidden !important;
+    border-radius: 15px !important;
+    border: 1px solid transparent;
+    box-shadow: 0px 8px 16px 0 rgb(0 0 0 / 10%) !important;
+}
+
+.card_profile {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    background: #e6e6e6;
+    overflow: visible !important;
+    border-radius: 30px 0px 0px 0px !important;
+    border: 1px solid transparent;
+    /* background: linear-gradient(45deg, #1BA55C, #0A783E); */
+    box-shadow: 0px 8px 16px 0 rgba(65, 65, 65, 0.1) !important;
+}
+
+.card_avatar {
+    position: relative;
+    display: block;
+    padding: 0px;
+    width: 180px;
+    height: 180px;
+    max-width: 180px;
+    margin: 45px 0px;
+    margin-top: 120px;
+    margin-bottom: -120px;
+    background: #e6e6e6;
+    overflow: hidden !important;
+    border: 1px solid transparent;
+    border-radius: 50% !important;
+    box-shadow: 0px 8px 16px 0 rgb(0 0 0 / 10%) !important;
+}
+
+.upload_button {
+    position: relative;
+    display: block;
+    padding: 0px;
+    width: 64px;
+    height: 64px;
+    max-width: 64px;
+    margin: 45px 0px;
+    background: #212121;
+    overflow: hidden !important;
+    border: 1px solid transparent;
+    border-radius: 50% !important;
+    box-shadow: 0px 8px 16px 0 rgb(0 0 0 / 10%) !important;
+}
+
+.upload_icon {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 64px;
+    object-fit: cover;
+    color: #ffffff!important;
+}
+
+.card_avatar img {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card_form .form-control {
+    margin: 15px 0px;
+    font-size: 16px;
+    width: 100%;
+    text-transform: capitalize;
+    font-family: Poppins-Light;
+}
+
+.card_form .btn {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border: unset;
+    font-size: 16px;
+    color: #ffffff;
+    overflow: hidden;
+    margin: 15px auto;
+    padding: 15px 25px;
+    border-radius: 10px;
+    transition: all 250ms;
+    background: #e8e8e8;
+    text-transform: capitalize;
+    font-family: Poppins-Light;
+    background-color: #0051FF;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+}
+
+.card_form .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.card_form .btn:hover {
+    color: #e8e8e8;
+}
+
+.card_form .btn:hover::before {
+    width: 100%;
+}
