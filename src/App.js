@@ -129,9 +129,8 @@ const App = () => {
   }
 
   const drawerWidth = 320;
-
   const checkIfWalletIsConnected = () => {
-    if (!window.ethereum) {
+    if (typeof window.ethereum !== 'object') {
       return false;
     } else {
       return true;
