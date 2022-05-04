@@ -2,10 +2,12 @@
 import React from 'react';
 import '../style/home_screen.css';
 import { styled } from '@mui/material/styles';
-import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
+import BankCardComponent from '../components/bank_card/bank_card';
+import { ReactComponent as CashIcon } from '../images/ionicons/cash.svg';
+import { Container, Grid, Card, CardContent, Typography, SvgIcon } from '@mui/material';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
 
-const HomeScreen = (navigation) => {
+const HomeScreen = () => {
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 10,
         borderRadius: 5,
@@ -17,23 +19,6 @@ const HomeScreen = (navigation) => {
             backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
         },
     }));
-    // Card Content
-    const card = (
-        <React.Fragment>
-            <CardContent className='card_content'>
-                <Typography color="#ffffff" className='card_text' gutterBottom>
-                    Multi Coin Wallet
-                </Typography>
-                <Typography variant="h5" component="div" className='card_heading'>
-                    $250
-                </Typography>
-                <Typography color="#ffffff" className='card_text'>
-                    **** 9834
-                </Typography>
-            </CardContent>
-        </React.Fragment>
-    );
-
     // Card Statistics Design
     const card_statistics = (title, amount, width) => (
         <React.Fragment>
@@ -54,7 +39,7 @@ const HomeScreen = (navigation) => {
     const list_item = (icon, title, price) => (
         <div className='list_item'>
             <div className='list_avatar'>
-                <img src={`../images/ionicons/${icon}.svg`} alt='Deposit' loading="lazy" />
+                <SvgIcon component={CashIcon} inheritViewBox className='list_avatar_img' />
             </div>
             <div className='list_text'>
                 <h3>{title}</h3>
@@ -67,11 +52,8 @@ const HomeScreen = (navigation) => {
     return (
         <Container>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={12} md={12} lg={12} xl={12}>
-                    <Card className='card'>{card}</Card>
-                </Grid>
                 <Grid item md={12} lg={12} xl={12} sm={12} xs={12}>
-                    <h3>Statistics</h3>
+                    <h3>Dashboard</h3>
                 </Grid>
                 <Grid item md={4} lg={4} xl={4} sm={12} xs={12}>
                     <Card className='card_statistics'>{card_statistics('maa token', 15, 15)}</Card>
@@ -87,6 +69,9 @@ const HomeScreen = (navigation) => {
                 </Grid>
                 <Grid item md={4} lg={4} xl={4} sm={12} xs={12}>{list_item('cash', 'Deposit', '$12.00')}</Grid>
                 <Grid item md={4} lg={4} xl={4} sm={12} xs={12}>{list_item('cash', 'Withdrawal', '$27.00')}</Grid>
+                <Grid item xs={12} md={12} lg={12} xl={12}>
+                    <Card className='card'>{BankCardComponent('Multi Coin Wallet', '$250', '9834')}</Card>
+                </Grid>
             </Grid>
         </Container>
     );
