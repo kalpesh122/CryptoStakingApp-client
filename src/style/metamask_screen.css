@@ -1,0 +1,143 @@
+.metamask_form .form-control {
+    margin: 15px;
+    width: calc(100% - 30px);
+    font-size: 16px;
+    font-family: Poppins-Light;
+}
+
+.metamask_form .form-control input,
+.metamask_form .form-control label,
+.metamask_form .form-control fieldset legend span {
+    font-family: Poppins-Regular !important;
+}
+
+.metamask_form .connect-btn {
+    position: relative;
+    z-index: 1;
+    width: calc(100% - 30px);
+    border: unset;
+    font-size: 16px;
+    color: #ffffff;
+    overflow: hidden;
+    margin: auto 15px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    transition: all 250ms;
+    background: #e8e8e8;
+    text-transform: capitalize;
+    font-family: Poppins-Light;
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    background: linear-gradient(45deg, rgb(246, 133, 27), rgb(124, 63, 5));
+}
+
+.metamask_form .connect-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    transition: all 250ms
+}
+
+.metamask_form .connect-btn:hover {
+    color: #e8e8e8;
+}
+
+.metamask_form .connect-btn:hover::before {
+    width: 100%;
+}
+
+.metamask_form {
+    position: relative;
+    display: block;
+    padding: 15px;
+    margin: auto;
+    max-width: 480px;
+    background: #ffffff;
+    overflow: hidden !important;
+    border-radius: 15px !important;
+    border: 1px solid transparent;
+    box-shadow: 0px 8px 16px 0 rgb(0 0 0 / 10%) !important;
+}
+
+.metamask_container {
+    position: relative;
+    display: grid !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0px;
+    margin: 0;
+    height: 100%;
+    width: 100% !important;
+    min-height: 100vh;
+    background: linear-gradient(45deg, rgb(246, 133, 27), rgb(124, 63, 5));
+}
+
+.metamask_container::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+.metamask_container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    border-radius: 0px;
+    border: none;
+}
+
+/* Handle */
+.metamask_container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border-radius: 10px;
+    transition: ease-in-out 0.2s;
+}
+
+.metamask_form .metamask_tab {
+    padding: 12px 45px;
+    text-transform: capitalize;
+    font-family: 'Poppins-Bold';
+    font-size: 16px;
+    color: black;
+}
+
+.p, p {
+    padding: 15px;
+    font-size: 16px;
+    font-family: Poppins-Light !important;
+}
+
+a {
+    color: #073fb8 !important;
+}
+
+h2 {
+    font-size: 26px;
+    text-transform: capitalize;
+    font-family: Poppins-regular;
+}
+
+.errortxt {
+    font-size: 16px !important;
+    margin: auto 15px !important;
+    width: calc(100% - 60px) !important;
+    text-transform: capitalize !important;
+    font-family: Poppins-Light !important;
+}
+
+.img {
+    position: relative;
+    margin: auto;
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: contain;
+}
