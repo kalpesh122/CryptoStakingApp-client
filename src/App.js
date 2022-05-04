@@ -187,12 +187,12 @@ const App = () => {
     },
   }));
 
-  console.log(user);
+  console.log(checkIfWalletIsConnected());
   return (
     <Box>
       {user !== '' ? (
         <Router>{
-          checkIfWalletIsConnected ? (
+          checkIfWalletIsConnected() ? (
             <Box
               sx={{
                 width: '100%',
