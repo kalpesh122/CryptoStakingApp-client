@@ -8,9 +8,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Container, Grid, Card, CardContent, Typography } from '@mui/material';
+import BankCardComponent from '../components/bank_card/bank_card';
+import { Container, Grid, Card } from '@mui/material';
 
-const WalletScreen = (navigation) => {
+const WalletScreen = () => {
     function createData(name, calories, fat, carbs, protein) {
         return { name, calories, fat, carbs, protein };
     }
@@ -19,27 +20,12 @@ const WalletScreen = (navigation) => {
         createData('01/05/2022 10:48', 'basic', 6.0, 2.0, 8.0),
         createData('01/05/2022 15:51', 'basic', 12.0, 4.0, 16.0),
     ];
-    // Card Content
-    const card = (
-        <React.Fragment>
-            <CardContent className='card_content'>
-                <Typography color="#ffffff" className='card_text' gutterBottom>
-                    Multi Coin Wallet
-                </Typography>
-                <Typography variant="h5" component="div" className='card_heading'>
-                    $250
-                </Typography>
-                <Typography color="#ffffff" className='card_text'>
-                    **** 9834
-                </Typography>
-            </CardContent>
-        </React.Fragment>
-    );
+
     return (
         <Container>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={12} md={12} lg={12} xl={12}>
-                    <Card className='card'>{card}</Card>
+                    <Card className='card'>{BankCardComponent('Multi Coin Wallet', '$250', '9834')}</Card>
                 </Grid>
                 <Grid item md={12} lg={12} xl={12} sm={12} xs={12}>
                     <h3>Wallet</h3>
