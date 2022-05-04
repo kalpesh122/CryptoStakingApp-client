@@ -8,3 +8,7 @@ body {
 code {
   font-family: Poppins-Regular;
 }
+
+* {
+  transition: cubic-bezier(.17, .88, .8, .05);
+}
