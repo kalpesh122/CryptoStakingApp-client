@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Box from '@mui/material/Box';
+import MetaMaskScreen from './screens/metamask_screen';
 import LoginScreen from './screens/login_screen';
 import HomeScreen from "./screens/home_screen";
 import WalletScreen from './screens/wallet_screen';
@@ -129,13 +130,13 @@ const App = () => {
 
   const drawerWidth = 320;
 
-  // const checkIfWalletIsConnected = () => {
-  //   if (!window.ethereum) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   };
-  // };
+  const checkIfWalletIsConnected = () => {
+    if (!window.ethereum) {
+      return false;
+    } else {
+      return true;
+    };
+  };
 
   useEffect(() => {
     authListener();
@@ -191,58 +192,66 @@ const App = () => {
   return (
     <Box>
       {user !== '' ? (
-        <Router>
-          <Box
-            sx={{
-              width: '100%',
-              height: '100%',
-              minHeight: '95vh',
-              backgroundColor: '#fffff',
-            }}
-          >
-            <Drawer
-              sx={{
-                width: drawerWidth,
-                flexShrink: 0,
-                '& .MuiDrawer-paper': {
-                  width: drawerWidth,
-                  boxSizing: 'border-box',
-                },
-              }}
-              variant="permanent"
-              anchor="left"
-            >{drawer}</Drawer>
+        <Router>{
+          checkIfWalletIsConnected ? (
             <Box
-              component="main"
-              sx={{ marginLeft: `${drawerWidth}px`, flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-            ><AppBar elevation={0} position="static">
-                <StyledToolbar>
-                  <Typography variant="h5" sx={{ flexGrow: 1, alignSelf: 'flex-start' }} className='header_text' > Crypto Stacking App </Typography>
-                  <IconButton className="header_button" size="large" aria-label="search" >
-                    <SearchIcon />
-                  </IconButton>
-                  <IconButton className="header_button" size="large" aria-label="display more actions" edge="end"  >
-                    <MoreIcon />
-                  </IconButton>
-                </StyledToolbar>
-              </AppBar>
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
-                  <Fragment>
-                    <Routes>
-                      <Route exact path="/" element={<HomeScreen />} />
-                      <Route exact path="/home" element={<HomeScreen />} />
-                      <Route exact path="/wallet" element={<WalletScreen />} />
-                      <Route exact path="/deposit" element={<DepositScreen user={user} />} />
-                      <Route exact path="/stacking" element={<StackingScreen />} />
-                      <Route exact path="/settings" element={<SettingsScreen />} />
-                      <Route exact path="/withdrawal" element={<WithDrawalScreen />} />
-                    </Routes>
-                  </Fragment>
+              sx={{
+                width: '100%',
+                height: '100%',
+                minHeight: '95vh',
+                backgroundColor: '#fffff',
+              }}
+            >
+              <Drawer
+                sx={{
+                  width: drawerWidth,
+                  flexShrink: 0,
+                  '& .MuiDrawer-paper': {
+                    width: drawerWidth,
+                    boxSizing: 'border-box',
+                  },
+                }}
+                variant="permanent"
+                anchor="left"
+              >{drawer}</Drawer>
+              <Box
+                component="main"
+                sx={{ marginLeft: `${drawerWidth}px`, flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+              ><AppBar elevation={0} position="static">
+                  <StyledToolbar>
+                    <Typography variant="h5" sx={{ flexGrow: 1, alignSelf: 'flex-start' }} className='header_text' > Crypto Stacking App </Typography>
+                    <IconButton className="header_button" size="large" aria-label="search" >
+                      <SearchIcon />
+                    </IconButton>
+                    <IconButton className="header_button" size="large" aria-label="display more actions" edge="end"  >
+                      <MoreIcon />
+                    </IconButton>
+                  </StyledToolbar>
+                </AppBar>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Fragment>
+                      <Routes>
+                        <Route exact path="/" element={<HomeScreen />} />
+                        <Route exact path="/home" element={<HomeScreen />} />
+                        <Route exact path="/wallet" element={<WalletScreen />} />
+                        <Route exact path="/deposit" element={<DepositScreen user={user} />} />
+                        <Route exact path="/stacking" element={<StackingScreen />} />
+                        <Route exact path="/settings" element={<SettingsScreen />} />
+                        <Route exact path="/withdrawal" element={<WithDrawalScreen />} />
+                      </Routes>
+                    </Fragment>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Box>
-          </Box>
+              </Box>
+            </Box>) : (
+            <Fragment>
+              <Routes>
+                <Route exact path="/" element={<MetaMaskScreen />} />
+                <Route exact path="/home" element={<MetaMaskScreen />} />
+                <Route exact path="/connnect" element={<MetaMaskScreen />} />
+              </Routes>
+            </Fragment>)}
         </Router>) : (
         <Box
           sx={{
