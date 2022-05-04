@@ -1,31 +1,16 @@
 
 import React from 'react';
 import '../style/withdrawal_screen.css';
+import BankCardComponent from '../components/bank_card/bank_card';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import { Container, Grid, Card, CardContent, Typography, TextField, InputAdornment, Button } from '@mui/material';
+import { Container, Grid, Card, CardContent, TextField, InputAdornment, Button } from '@mui/material';
 
-const WithDrawalScreen = (navigation) => {
-    // Card Content
-    const card = (
-        <React.Fragment>
-            <CardContent className='card_content'>
-                <Typography color="#ffffff" className='card_text' gutterBottom>
-                    Multi Coin Wallet
-                </Typography>
-                <Typography variant="h5" component="div" className='card_heading'>
-                    $250
-                </Typography>
-                <Typography color="#ffffff" className='card_text'>
-                    **** 9834
-                </Typography>
-            </CardContent>
-        </React.Fragment>
-    );
+const WithDrawalScreen = () => {
     return (
         <Container>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={12} md={12} lg={12} xl={12}>
-                    <Card className='card'>{card}</Card>
+                    <Card className='card'>{BankCardComponent('Multi Coin Wallet', '$250', '9834')}</Card>
                 </Grid>
                 <Grid item md={12} lg={12} xl={12} sm={12} xs={12}>
                     <h3>Withdrawal</h3>
