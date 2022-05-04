@@ -1,0 +1,40 @@
+.card {
+    position: relative;
+    display: block;
+    padding: 15px;
+    max-width: 320px;
+    margin: 15px auto;
+    padding-bottom: 5px;
+    overflow: hidden !important;
+    border-radius: 15px !important;
+    border: 1px solid transparent;
+    box-shadow: 0px 8px 16px 0 rgb(0 0 0 / 10%) !important;
+    background: linear-gradient(45deg, #009FFF, #0051FF);
+}
+
+.card .card_content {
+    padding: 0 !important;
+}
+
+.card .card_text, .card .card_heading {
+    color: #ffffff !important;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+    text-transform: capitalize !important;
+    font-family: 'Poppins-Light' !important;
+}
+
+.card .card_heading .card_heading {
+    font-size: 48px !important;
+    font-family: 'Poppins-Bold' !important;
+}
+
+.card .card_text:last-child {
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 16px;
+    font-family: Poppins-Black;
+}
