@@ -44,3 +44,30 @@
     font-family: Poppins-Regular;
     background-color: transparent;
 }
+
+.aside_text {
+    color: #111;
+    font-family: Poppins-Regular;
+    text-decoration: none !important;
+}
+
+.aside_button {
+    position: relative;
+    display: flex;
+    padding: 0;
+    margin: 5px;
+    color: #111;
+    background: #fff;
+    font-family: Poppins-Regular;
+    overflow: hidden !important;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px !important;
+    text-decoration: none !important;
+}
+
+.aside_button_text {
+    position: relative;
+    display: flex;
+    padding: 15px;
+    margin: 5px;
+}
