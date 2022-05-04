@@ -233,10 +233,10 @@ const App = () => {
                       <Routes>
                         <Route exact path="/" element={<HomeScreen />} />
                         <Route exact path="/home" element={<HomeScreen />} />
-                        <Route exact path="/wallet" element={<WalletScreen />} />
+                        <Route exact path="/wallet" element={<WalletScreen user={user}/>} />
                         <Route exact path="/deposit" element={<DepositScreen user={user} />} />
                         <Route exact path="/stacking" element={<StackingScreen />} />
-                        <Route exact path="/settings" element={<SettingsScreen />} />
+                        <Route exact path="/settings" element={<SettingsScreen user={user} />} />
                         <Route exact path="/withdrawal" element={<WithDrawalScreen />} />
                       </Routes>
                     </Fragment>
