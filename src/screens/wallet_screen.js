@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import '../style/wallet_screen.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,18 +8,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import fire from '../fire';
 import BankCardComponent from '../components/bank_card/bank_card';
 import { Container, Grid, Card } from '@mui/material';
 
-const WalletScreen = () => {
-    function createData(name, calories, fat, carbs, protein) {
-        return { name, calories, fat, carbs, protein };
-    }
+const WalletScreen = (user) => {
+    const [recentDeposits, setRecentDeposits] = useState([]);
+    const userEmail = user.user.email;
 
-    const rows = [
-        createData('01/05/2022 10:48', 'basic', 6.0, 2.0, 8.0),
-        createData('01/05/2022 15:51', 'basic', 12.0, 4.0, 16.0),
-    ];
+    const db = fire.firestore();
+    let rows = [];
+
+    db.collection("deposits").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            if (doc.data().username === userEmail) {
+                const properDate = new Date(doc.data().date);
+                rows.push({ date: `${properDate.getDate()}/${properDate.getMonth()}/${properDate.getFullYear()} ${properDate.getHours()}:${properDate.getMinutes()}`, username: `${doc.data().username}`, amount: `${doc.data().amount}`, paid: `${doc.data().paid}`, id: `${doc.id}` });
+                setRecentDeposits(rows);
+            }
+        });
+    });
 
     return (
         <Container>
@@ -35,24 +43,24 @@ const WalletScreen = () => {
                         <Table sx={{ minWidth: 650 }} size="large" aria-label="a dense table">
                             <TableHead>
                                 <TableRow>
+                                    <TableCell className='tableHeader'>#</TableCell>
                                     <TableCell className='tableHeader'>date</TableCell>
-                                    <TableCell className='tableHeader'>account type</TableCell>
-                                    <TableCell className='tableHeader'>request amount</TableCell>
-                                    <TableCell className='tableHeader'>handling charge</TableCell>
-                                    <TableCell className='tableHeader'>payable amount</TableCell>
+                                    <TableCell className='tableHeader'>user address</TableCell>
+                                    <TableCell className='tableHeader'>amount</TableCell>
+                                    <TableCell className='tableHeader'>paid</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {rows.map((row) => (
+                                {recentDeposits.map((row) => (
                                     <TableRow
-                                        key={row.name}
+                                        key={row.id}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
-                                        <TableCell className='tableRow'>{row.name}</TableCell>
-                                        <TableCell className='tableRow'>{row.calories}</TableCell>
-                                        <TableCell className='tableRow'>{row.fat}</TableCell>
-                                        <TableCell className='tableRow'>{row.carbs}</TableCell>
-                                        <TableCell className='tableRow'>{row.protein}</TableCell>
+                                        <TableCell className='tableRow'>{row.id}</TableCell>
+                                        <TableCell className='tableRow'>{row.date}</TableCell>
+                                        <TableCell className='tableRow'>{row.username}</TableCell>
+                                        <TableCell className='tableRow'>{row.amount}</TableCell>
+                                        <TableCell className='tableRow'>{row.paid}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
